@@ -18,6 +18,7 @@ function DropdownCtrl($scope) {
         console.log('Dropdown is now: ', open);
     };
 
+
     $scope.toggleDropdown = function($event) {
         $event.preventDefault();
         $event.stopPropagation();
