@@ -1,14 +1,65 @@
 /**
  * Created by casal033 on 9/16/14.
  */
-angular.module('gpaApp', ['ui.bootstrap']);
+angular.module('gpaApp', ['ui.bootstrap'])
 
-function DropdownCtrl($scope) {
-    $scope.items = [
-        'The first choice!',
-        'And another choice for you.',
-        'but wait! A third!'
+.controller('GradeController', ['$scope', function($scope) {
+    $scope.grades = [
+        {grade:'A', value:4.000},
+        {grade:'A-', value:3.667},
+        {grade:'B+', value:3.333},
+        {grade:'B', value:3.000},
+        {grade:'B-', value:2.667},
+        {grade:'C+', value:2.333},
+        {grade:'C', value:2.000},
+        {grade:'C-', value:1.667},
+        {grade:'D+', value:1.333},
+        {grade:'D', value:1.000},
+        {grade:'F', value:0.000}
     ];
+
+//this is each class item with a name, credit amount, and a value of each grade letter
+    $scope.classes = {
+        class: [{
+            name:'name',
+            credit: 1,
+            grade:{
+                sign:'',
+                value:''}
+        }]
+    };
+
+    //this function will push a new class to the class list
+    $scope.addClass = function() {
+        $scope.classes.class.push({
+            name:'name',
+            credit: 1,
+            grade: {
+                sign:'',
+                value:''}
+        });
+    };
+
+    //This function allows you to remove only if the number of classes is > 1
+    $scope.removeClass = function(index) {
+        if($scope.classes.class.length > 1) {
+            $scope.classes.class.splice(index, 1);
+        } else {window.alert("You can't drop the only class")
+        }
+
+    };
+
+    //This function will calculate the GPA, including credits per class
+    $scope.total = function() {
+        var total = 0;
+        var cred = 0;
+        angular.forEach($scope.classes.class, function(item) {
+            total += item.credit * item.grade.value;
+            cred += item.credit;
+        });
+        $scope.returnCred = cred;
+        $scope.gpa = ((total)/cred).toFixed(3);
+    };
 
     $scope.status = {
         isopen: false
@@ -23,4 +74,4 @@ function DropdownCtrl($scope) {
         $event.stopPropagation();
         $scope.status.isopen = !$scope.status.isopen;
     };
-}
+}]);

@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #FFF9CC;
+    background-color: lightgrey;
 }
 
 a {
@@ -16,5 +16,5 @@ a {
 .section {
     border-radius: 10px;
     padding: 20px;
-    background-color: #FFCCD9;
+    background-color: royalblue;
 }
