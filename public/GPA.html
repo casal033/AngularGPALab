@@ -31,10 +31,10 @@
     <!--Inputs for the name, and credits, selector for the grade.-->
     <tr ng-repeat="item in classes.class">
         <td><input type="text" ng-model="item.name"class="name"></td>
-        <td><input type="number" class="grade" min="0" max ="10" ng-model="item.credit" ></td>
-        <td><select type="text" ng-model="item.grade" ng-options="gpa.grade for gpa in grades"></select></td>
+        <td><input type="number" class="grade" min="0" max ="10" ng-model="item.credit" ng-click="total()"></td>
+        <td><select type="text" ng-model="item.grade" ng-options="gpa.grade for gpa in grades" ng-click="total()" ></select></td>
         <td>{{item.grade.value.toFixed(3)}}</td>
-        <td>[<a href ng-click="removeClass($index)">X</a>]</td>
+        <td>[<a href ng-click="removeClass($index); total()">X</a>]</td>
     </tr>
     <tr>
         <td>Total Credits:</td>
@@ -45,8 +45,8 @@
 </table>
 <hr />
 <p>
-    <button type="button" class="btn btn-default btn-sm" ng-click="total()">Calculate</button>
-    <button type="button" class="btn btn-default btn-sm" ng-click="addClass()">Add Course</button>
+    <center>
+    <button type="button" class="btn btn-default btn-sm" ng-click="addClass()">Add Course</button></center>
     <!--<button class="btn btn-default btn-sm">-->
 </p>
 

@@ -47,3 +47,10 @@ GPA Calculator Image Examples
 
 ![A basic GPA calculator](basicGPA.png)
 ![A fancy and more advanced GPA calculator](fancyGPA.png)
+
+==============================
+If Only We Knew How to Test(:
+-We would test to see if all the inputs are being entered
+-Checking set-up of web page layout (being centered or designed a certain way)
+-Checking combinations ex: credits added up correctly
+-Making sure buttons do intended task
